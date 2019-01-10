@@ -1,0 +1,43 @@
+//groupNoAdj
+
+public boolean groupNoAdj(int start, int[] nums, int target) {
+  if(target == 0)
+    return true;
+  
+  if(start >= nums.length)
+    return false;
+  
+  if(groupNoAdj(start + 2, nums, target - nums[start]))
+    return true;
+  else
+    return groupNoAdj(start + 1, nums, target);
+    
+   
+  
+}
+
+
+//split53
+public boolean split53(int[] nums) {
+ 
+  return sumSides(nums, 0, 0, 0);
+}
+
+public boolean sumSides(int[] nums, int index, int sumR, int sumL){
+  if(sumR == sumL && index == nums.length)
+    return true;  
+  else if(index == nums.length)
+    return false;  
+    
+  if(nums[index] % 5 == 0)
+    return sumSides(nums, index + 1, sumR, sumL += nums[index]); 
+  else if(nums[index] % 3 == 0)
+    return sumSides(nums, index + 1, sumR+= nums[index], sumL);
+ 
+  
+ if(sumSides(nums, index + 1, sumR + nums[index], sumL ))
+    return true;
+    
+  return sumSides(nums,  index + 1, sumR,  sumL + nums[index]);
+    
+}

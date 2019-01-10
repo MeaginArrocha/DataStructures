@@ -1,0 +1,39 @@
+comments i don't understand:
+
+
+
+ Constructor doesn't give values to counter or player
+
+Actor: how does resetDirection differ for Player vs. Monster (i.e. why is it pure virtual?)
+
+Monster: why is isOnPlayer() pure virtual? Wouldn't that be the same for any Monster? I would
+ suggest storing a display char in Monster so that getDisplayChar can be implemented here instead of 4 times. 
+No need for 3 bools for the state, since no two of them could ever be true at the same time. Probably easier as
+ a single int or string. Constructor doesn't give values to counter or player. Why is setVulnerable and setNormal 
+virtual? They should be the same for all Monsters (the movement is different, but the setting of the states is not). 
+How would setVulnerable be called? The Player eats the power pellet but has no way to tell Monsters or the Game it 
+did so. level issues for vulnerable count is probably easier done as a parameter to setVulnerable. Monster will 
+probably only need the Player pointer to determine its x,y for smart algorithms (or have getPlayer X/Yin Game).
+
+Game: getMazeContents: unlikely this will have anything to do with Monsters. Remember that printing an I on the 
+screen doesn't change the Maze to say that Inky is there. Furthermore if you did change the Maze contents you could
+ lose the pellet that had been there. Since Actor has a Maze *, what is the need for getMazeContents at all?
+
+Maze: DFSarray is easier as int than char. How will the Maze displayActors? It doesn't know anything about them 
+(that method was just for the lab).
+
+Player: How will the Player deter
+
+player/monster algo: problems with your check on what state the monster is: your algorithm to determine if 
+Player/Monster are on the same spot seems to assume there is only 1 Monster and so it can't check the state in 
+the next if. You will have to do this twice per tick: once after the Player moves and then again after 
+all 4 Monsters have moved (or possibly after each Monster moved).
+
+do later:
+
+Maze: DFSarray is easier as int than char. How will the Maze displayActors? 
+It doesn't know anything about them (that method was just for the lab).
+
+Dinky: invisibility would be considered cheating. That isn't making him smarter, that is giving him special 
+abilities/powers. Having him able to see the whole map isn't really a complete idea. Now that he knows the
+ map, what will he do?

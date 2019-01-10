@@ -1,0 +1,18 @@
+﻿Build started 4/23/2014 1:54:05 PM.
+     1>Project "C:\Users\David\Desktop\Homework\Data Struct\Lab26Bonus\Lab26Bonus\Lab26Bonus.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt heap.cpp
+         heap.cpp
+     1>c:\users\david\desktop\homework\data struct\lab26bonus\lab26bonus\heap.cpp(5): error C2955: 'Heap' : use of class template requires template argument list
+                 c:\users\david\desktop\homework\data struct\lab26bonus\lab26bonus\heap.h(4) : see declaration of 'Heap'
+     1>c:\users\david\desktop\homework\data struct\lab26bonus\lab26bonus\heap.cpp(8): error C2244: 'Heap<Item>::empty' : unable to match function definition to an existing declaration
+                 c:\users\david\desktop\homework\data struct\lab26bonus\lab26bonus\heap.h(7) : see declaration of 'Heap<Item>::empty'
+                 definition
+                 'bool Heap::empty(void) const'
+                 existing declarations
+                 'bool Heap<Item>::empty(void) const'
+     1>Done Building Project "C:\Users\David\Desktop\Homework\Data Struct\Lab26Bonus\Lab26Bonus\Lab26Bonus.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:06.67

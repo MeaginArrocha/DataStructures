@@ -1,0 +1,39 @@
+class Maze;
+class CConsole;
+class Player;
+
+#ifndef GAME_H
+#define GAME_H
+
+class Game{
+public:
+	Game(int delay); // creates universe but doesn't start it
+	//the int parameter is used as the parameter to the CConsole delay method called during the main loop
+	~Game();//cleans up memory
+	void run(); //starts the game. will have a main game loop
+	//inside this loop the delay method from the CConsole class is called using the delay value given by the constructor
+
+	int getLevel() const; // returns current level
+	//useful for Monsters later to determine how long they are vulnerable
+	int getPlayerX() const; //gets x coordinate of player
+	int getPlayerY() const; //gets y coordinate of player
+	void killPlayer(); //used if a Monster does kill the Player so the Game can reset Actors
+	void clearPeletPosition(int x, int y); //player ate pellet at position x,y
+	char getMazeContents(int x, int y); //returns the char that is present in the maze at x,y
+
+
+private:
+	//put methods here for starting & ending levels, moving actors, and printint messages
+	void printMessage(); //couts the messages onto the command prompt;
+	void startLevel(); //starts the level when the enter key is pressed
+	void endLevel(); //ends the level if all pellets are gone or if all lives are gone
+	void move(); //used to move the actors
+
+	//private data for Game should include Maze, CConsole, Player
+	Maze * maze;
+	CConsole * console;
+	Player * player;
+	int delayAmount;
+};
+
+#endif
